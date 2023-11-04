@@ -26,7 +26,6 @@ def init():
         reference = f.read()
         reference = reference.split()
     reference = reference[randint(0, len(reference))]
-    print(reference)
     actuel = ""
     essais = int(input("Entrez le nombre d'essais : "))
     for i in range(len(reference)):
