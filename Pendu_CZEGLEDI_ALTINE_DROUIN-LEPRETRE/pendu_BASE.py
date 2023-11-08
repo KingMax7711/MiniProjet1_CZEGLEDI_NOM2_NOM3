@@ -36,23 +36,15 @@ def init():
         param: none
         return: none
         Utilisation: Initialise le jeu"""
-    with open("Pendu_CZEGLEDI_ALTINE_DROUIN-LEPRETRE\dico.txt", "r") as f: # Ouvre le fichier dico.txt
-        reference = f.read() # Met le contenu du fichier dans la variable reference
-        reference = reference.split() # Transforme reference en liste
+    reference = ["Kayak", "Pomme", "Banane", "Piscine"]
     reference = reference[randint(0, len(reference))] # Prend un mot au hasard dans la liste
     actuel = ""
     essais = int(input("Entrez le nombre d'essais : "))
     for i in range(len(reference)):
         actuel += "_" # Met autant de "_" que de lettres dans le mot
     lettre_jouees = ""
-    nb_joueurs = int(input("Entrez le nombre de joueurs : "))
-    if nb_joueurs == 1:
-        main(reference, actuel, essais, lettre_jouees)
-    elif nb_joueurs == 2:
-        main2(reference, actuel, essais, lettre_jouees)
-    else:
-        print("Nombre de joueurs invalide")
-        init()
+    main(reference, actuel, essais, lettre_jouees)
+    
 
 def main(reference, actuel, essais, lettre_jouees):
     """
@@ -66,42 +58,6 @@ def main(reference, actuel, essais, lettre_jouees):
         print("\033[0;94mVous avez déja utilisé les lêttres : {}\033[0m".format(lettre_jouees))
         lettre = demander_lettre() # Demande une lettre à l'utilisateur a l'aide la fonction déiée
         lettre_jouees += lettre 
-        
-        oldActuel = actuel
-        actuel = remplace(reference, actuel, lettre) # Remplace les "_" par la lettre si elle est dans le mot a l'aide de la fonction dédiée
-
-
-        if oldActuel == actuel:
-            essais -= 1
-            oldactuel = actuel
-        else:
-            oldActuel = actuel
-            
-        if "_" not in actuel: # Si il n'y a plus de "_" dans le mot, l'utilisateur a gagné
-            print("\033[0;92mVous avez gagné, le mot était {}\033[0m".format(reference))
-            break
-        if essais == 0: # Si il n'y a plus d'essais, l'utilisateur a perdu
-            print("\033[0;91mVous avez perdu, le mot était {}\033[0m".format(reference))
-            break
-
-def main2(reference, actuel, essais, lettre_jouees):
-    """
-        param: reference, actuel, essais, lettre_jouees
-        return: none
-        Utilisation: Boucle principale du jeu"""
-    
-    while essais > 0:
-        print("\033[0;94mIl vous reste {} essais\033[0m".format(essais))
-        print("\033[0;94mActuellement vous avez trouvé : {}\033[0m".format(actuel))
-        print("\033[0;94mVous avez déja utilisé les lêttres : {}\033[0m".format(lettre_jouees))
-        if essais % 2 == 0:
-            print("\033[0;95mC'est au tour du joueur 1\033[0m")
-            lettre = demander_lettre() # Demande une lettre à l'utilisateur a l'aide la fonction déiée
-            lettre_jouees += lettre 
-        else:
-            print("\033[0;95mC'est au tour du joueur 2\033[0m")
-            lettre = demander_lettre() # Demande une lettre à l'utilisateur a l'aide la fonction déiée
-            lettre_jouees += lettre 
         
         oldActuel = actuel
         actuel = remplace(reference, actuel, lettre) # Remplace les "_" par la lettre si elle est dans le mot a l'aide de la fonction dédiée
