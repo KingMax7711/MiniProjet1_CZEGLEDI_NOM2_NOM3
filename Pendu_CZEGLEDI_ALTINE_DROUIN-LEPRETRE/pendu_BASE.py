@@ -37,7 +37,8 @@ def init():
         return: none
         Utilisation: Initialise le jeu"""
     reference = ["Kayak", "Pomme", "Banane", "Piscine"]
-    reference = reference[randint(0, len(reference))] # Prend un mot au hasard dans la liste
+    reference = reference[randint(0, len(reference))-1] # Prend un mot au hasard dans la liste
+    reference = reference.lower()
     actuel = ""
     essais = int(input("Entrez le nombre d'essais : "))
     for i in range(len(reference)):
