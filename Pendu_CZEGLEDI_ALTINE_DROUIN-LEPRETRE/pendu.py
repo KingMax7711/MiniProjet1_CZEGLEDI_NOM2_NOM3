@@ -39,7 +39,7 @@ def init():
     with open("Pendu_CZEGLEDI_ALTINE_DROUIN-LEPRETRE\dico.txt", "r") as f: # Ouvre le fichier dico.txt
         reference = f.read() # Met le contenu du fichier dans la variable reference
         reference = reference.split() # Transforme reference en liste
-    reference = reference[randint(0, len(reference))] # Prend un mot au hasard dans la liste
+    reference = reference[randint(0, len(reference))-1] # Prend un mot au hasard dans la liste
     actuel = ""
     essais = int(input("Entrez le nombre d'essais : "))
     for i in range(len(reference)):
