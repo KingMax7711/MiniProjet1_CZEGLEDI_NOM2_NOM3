@@ -19,7 +19,6 @@ def choose_words(lg_word):
     word_list = [word for word in word_list if len(word) == lg_word]
     return word_list[random.randint(0, len(word_list)) -1]
 
-
 def enter_word(lg_word):
     '''
         param: lg_word
@@ -81,7 +80,7 @@ def main(actuel_word, actuel_word_noModif, essais, lg_word):
             print(f"{Colors.GREEN}Félicitations vous avez gagné !{Colors.RESET}")
             break
         elif essais == 0:
-            print(f"{Colors.RED}Dommage, c'est perdu !'{Colors.RESET}")
+            print(f"{Colors.RED}Dommage, c'est perdu !{Colors.RESET}")
             break
         print(f"{Colors.PURPLE}Il vous reste {essais} essais{Colors.RESET}")
         
